@@ -63,7 +63,7 @@ public class ImpostoRendaPF {
 		// Listar as Pessoas
 		daoP.listaPessoas();
 		// Listar os impostos
-		//daoP.CalcularTributosPessoas();
+		daoP.calcularTributosPessoas();
 		// Listar o total de imposto e Pessoas associadas
 		daoP.imprimeImpostoTotal();
 		}

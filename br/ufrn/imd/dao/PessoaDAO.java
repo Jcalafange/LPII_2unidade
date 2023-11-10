@@ -2,13 +2,12 @@ package br.ufrn.imd.dao;
 
 import java.util.ArrayList;
 
-import br.ufrn.imd.modelo.ContaCorrente;
 import br.ufrn.imd.modelo.Pessoa;
-import br.ufrn.imd.modelo.SeguroVida;
+import br.ufrn.imd.controle.*;
 
 
 public class PessoaDAO {
-
+	private GeradorImpostoRenda Gerador = new GeradorImpostoRenda();
     private ArrayList<Pessoa> pessoas;
 
     public PessoaDAO() {
@@ -30,30 +29,33 @@ public class PessoaDAO {
     }
 
     public void calcularTributosPessoas() {
+   
         for (Pessoa pessoa : pessoas) {
-            pessoa.calcularTributos();
+        	System.out.println(pessoa.getNome());
+        	System.out.println("R$"+Gerador.calculaValorTotalTributo(pessoa));
+            
         }
     }
 
     public void imprimeImpostoTotal() {
         int totalImposto = 0;
         String nomeMaiorContribuinte = "";
-        int valorMaiorContribuinte = 0;
+        double valorMaiorContribuinte = 0;
         String nomeMaiorBeneficiado = "";
-        int valorMaiorBeneficiado = 0;
+        double valorMaiorBeneficiado = 0;
 
         for (Pessoa pessoa : pessoas) {
-           // totalImposto += pessoa.getValorTributo();
+            totalImposto += Gerador.calculaValorTotalTributo(pessoa);
 
-            /*if (pessoa.getValorTributo() > valorMaiorContribuinte) {
+            if (Gerador.calculaValorTotalTributo(pessoa) > valorMaiorContribuinte) {
                 nomeMaiorContribuinte = pessoa.getNome();
-                valorMaiorContribuinte = pessoa.getValorTributo();
+                valorMaiorContribuinte = Gerador.calculaValorTotalTributo(pessoa);
             }
 
-            if (pessoa.getValorSeguro() > valorMaiorBeneficiado) {
+            if (pessoa.getSeguro().getValor() > valorMaiorBeneficiado) {
                 nomeMaiorBeneficiado = pessoa.getNome();
-                valorMaiorBeneficiado = pessoa.getValorSeguro();
-            }*/
+                valorMaiorBeneficiado = pessoa.getSeguro().getValor();
+            }
         }
 
         System.out.println("Total de imposto a ser recolhido: R$" + totalImposto);

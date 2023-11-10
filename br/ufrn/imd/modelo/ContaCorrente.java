@@ -46,21 +46,29 @@ public class ContaCorrente implements iTributavel{
     		System.out.println("Saque maior que o saldo.");
     	}
     	else {
-    		saldo -= valor;
+    		this.saldo -= valor;
     	}
     	
     }
 
     public void depositar(double valor) {
-    	saldo += valor;
+    	this.saldo += valor;
     }
 
     public boolean transferir(double valor, ContaCorrente cc) {
-        return false;
+    	if(valor>this.saldo) {
+    		System.out.println("Não é possível tranferir valor maior que o saldo");
+    		return false;
+    	}
+    	else {
+    		sacar(valor);
+    		cc.depositar(valor);	
+    	}
+        return true;
     }
 
     @Override
     public double calcularTributos() {
-    return this.saldo * 0.38;
+    	return this.saldo * 0.0038;
     }
 }
