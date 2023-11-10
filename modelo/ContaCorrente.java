@@ -1,8 +1,6 @@
 package modelo;
 
-import modelo.iTributavel;
-
-class ContaCorrente implements iTributavel{
+public class ContaCorrente implements iTributavel{
 
     private String agencia;
     private String numero;

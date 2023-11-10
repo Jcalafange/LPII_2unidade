@@ -1,7 +1,5 @@
 package modelo;
 
-import modelo.iTributavel;
-
 public class SeguroVida implements iTributavel{
     private int numero;
     private String beneficiado;
