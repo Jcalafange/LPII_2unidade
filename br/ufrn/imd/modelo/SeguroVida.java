@@ -1,21 +1,27 @@
-package modelo;
+package br.ufrn.imd.modelo;
 
-import modelo.iTributavel;
+import br.ufrn.imd.modelo.iTributavel;
 
 public class SeguroVida implements iTributavel{
     private int numero;
     private String beneficiado;
     private double valor;
-    private double taxa;
+    private double taxa = 31.50;
 
-    public SeguroVida(int numero, String beneficiado, double valor, double taxa) {
+    public SeguroVida(int numero, String beneficiado, double valor) {
         this.numero = numero;
         this.beneficiado = beneficiado;
         this.valor = valor;
-        this.taxa = taxa;
+        
     }
+    
 
-    public int getNumero(){
+    public SeguroVida() {
+		super();
+	}
+
+
+	public int getNumero(){
         return this.numero;
     }
 

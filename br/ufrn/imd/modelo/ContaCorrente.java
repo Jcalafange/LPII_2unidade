@@ -1,8 +1,6 @@
-package modelo;
+package br.ufrn.imd.modelo;
 
-import modelo.iTributavel;
-
-class ContaCorrente implements iTributavel{
+public class ContaCorrente implements iTributavel{
 
     private String agencia;
     private String numero;
@@ -13,8 +11,14 @@ class ContaCorrente implements iTributavel{
         this.numero = numero;
         this.saldo = saldo;
     }
+    
 
-    public String getAgencia() {
+    public ContaCorrente() {
+		super();
+	}
+
+
+	public String getAgencia() {
         return this.agencia;
     }
 
@@ -38,9 +42,17 @@ class ContaCorrente implements iTributavel{
         this.saldo = saldo;
     }
     public void sacar(double valor) {
+    	if(valor>saldo) {
+    		System.out.println("Saque maior que o saldo.");
+    	}
+    	else {
+    		saldo -= valor;
+    	}
+    	
     }
 
     public void depositar(double valor) {
+    	saldo += valor;
     }
 
     public boolean transferir(double valor, ContaCorrente cc) {
@@ -49,6 +61,6 @@ class ContaCorrente implements iTributavel{
 
     @Override
     public double calcularTributos() {
-    return this.saldo * 0.0038;
+    return this.saldo * 0.38;
     }
 }

@@ -1,4 +1,4 @@
-package modelo;
+package br.ufrn.imd.modelo;
 
 public class Pessoa implements iTributavel{
     
@@ -12,9 +12,16 @@ public class Pessoa implements iTributavel{
         this.salario = salario;
         this.conta = conta;
         this.seguro = seguro;
+        
     }
+    
 
-    public String getNome() {
+    public Pessoa() {
+		super();
+	}
+
+
+	public String getNome() {
         return this.nome;
     }
 
@@ -49,4 +56,10 @@ public class Pessoa implements iTributavel{
     public double calcularTributos() {
         return this.salario * 0.11;
     }
+
+	@Override
+	public String toString() {
+		return "Nome: " + nome + "\nSalario: R$" + salario + "\nSaldo em conta: " + conta.getSaldo() + "\nSeguro: R$" + seguro.getValor();
+	}
+    
 }
