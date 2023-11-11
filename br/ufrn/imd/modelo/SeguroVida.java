@@ -1,7 +1,5 @@
 package br.ufrn.imd.modelo;
 
-import br.ufrn.imd.modelo.iTributavel;
-
 public class SeguroVida implements iTributavel{
     private int numero;
     private String beneficiado;
@@ -55,6 +53,6 @@ public class SeguroVida implements iTributavel{
 
     @Override
     public double calcularTributos() {
-        return 31.50;
+        return taxa;
     }
 }

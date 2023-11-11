@@ -54,10 +54,10 @@ public class ImpostoRendaPF {
 		// Depósitos
 		p1.getConta().depositar(200);
 		p2.getConta().depositar(500);
-		System.out.println();
+		
 		// Saques
 		p3.getConta().sacar(100);
-		System.out.println();
+		
 		// Transferências
 		p2.getConta().transferir(300, cc3);
 		// Listar as Pessoas

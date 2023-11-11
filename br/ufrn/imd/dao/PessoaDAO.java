@@ -23,21 +23,27 @@ public class PessoaDAO {
     }
 
     public void listaPessoas() {
+    	System.out.println("=== Listando as pessoas ===");
         for (Pessoa pessoa : pessoas) {
             System.out.println(pessoa);
         }
+        System.out.println("============");
     }
 
     public void calcularTributosPessoas() {
-   
+    	System.out.println("=== Calculando tributos das pessoas ===");
         for (Pessoa pessoa : pessoas) {
         	System.out.println(pessoa.getNome());
         	System.out.println("R$"+Gerador.calculaValorTotalTributo(pessoa));
             
         }
+        System.out.println("============");
     }
+    
 
     public void imprimeImpostoTotal() {
+    	 System.out.println("=== Cálculo total dos impostos ===");
+    
         int totalImposto = 0;
         String nomeMaiorContribuinte = "";
         double valorMaiorContribuinte = 0;
@@ -63,6 +69,7 @@ public class PessoaDAO {
         System.out.println("Valor do imposto da pessoa que pagará o maior imposto: R$" + valorMaiorContribuinte);
         System.out.println("Nome do beneficiado com o maior valor de seguro: " + nomeMaiorBeneficiado);
         System.out.println("Valor do seguro do beneficiado com o maior valor de seguro: R$" + valorMaiorBeneficiado);
+        System.out.println("============");
     }
     
 

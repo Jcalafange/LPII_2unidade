@@ -46,12 +46,14 @@ public class ContaCorrente implements iTributavel{
     		System.out.println("Saque maior que o saldo.");
     	}
     	else {
+    		System.out.println("Foi sacado R$"+valor+" da conta "+this.numero);
     		this.saldo -= valor;
     	}
     	
     }
 
     public void depositar(double valor) {
+    	System.out.println("Foi depositado R$"+valor+" na conta "+this.numero);
     	this.saldo += valor;
     }
 
@@ -62,7 +64,8 @@ public class ContaCorrente implements iTributavel{
     	}
     	else {
     		sacar(valor);
-    		cc.depositar(valor);	
+    		cc.depositar(valor);
+    		System.out.println("A conta "+this.numero +" transferiu R$"+valor+" para a conta "+cc.getNumero());
     	}
         return true;
     }
